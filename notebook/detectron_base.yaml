@@ -1,0 +1,98 @@
+MODEL:
+  NAME: GeneralizedRCNN
+  DEVICE: cuda
+
+  BACKBONE:
+    NAME: SimpleFeaturePyramid
+
+    NET:
+      NAME: ViT
+      IMG_SIZE: 1024
+      PATCH_SIZE: 16
+      IN_CHANS: 1
+      EMBED_DIM: 768
+      DEPTH: 12
+      NUM_HEADS: 12
+      DROP_PATH_RATE: 0.1
+      WINDOW_SIZE: 14
+      WINDOW_BLOCK_INDEXES: [0, 1, 3, 4, 6, 7, 9, 10]
+    OUT_DIM: 256
+    SCALES: [4.0, 2.0, 1.0, 0.5]
+    SQAURE_PAD: 1024
+  
+  PROPOSAL:
+    NAME: RPN
+    IN_FEATURES: ["p2", "p3", "p4", "p5", "p6"]
+
+    HEAD:
+      NAME: StandardRPNHead
+      IN_CHANS: 256
+      NUM_ANCHORS: 3
+      CONV_DIMS: [-1,-1]
+    
+    ANCHOR_GENERATOR:
+      NAME: DefaultAnchorGenerator
+      SIZES: [[20, 28, 36], [40, 56, 72], [80, 112, 144], [160, 224, 288], [320, 448, 576]]
+      ASPECT: [1.0]
+      STRIDES: [4, 8, 16, 32, 64]
+    
+    MATCHER:
+      NAME: Matcher
+      THRESHOLDS: [0.4,0.8]
+      LABELS: [0,-1,1]
+      ALLOW_LOW: True
+
+    BOX2BOX:
+      NAME: Box2BoxTransform
+      WEIGHT: [1.0,1.0,1.0,1.0]
+
+    BATCHSIZE: 256
+    POS_FRACTION: 0.25
+    PRE_NMS: [3000,1500]
+    POST_NMS: [1500,1500]
+    NMS_THRESH: 0.6
+
+  ROI_HEADS:
+    NAME: StandardROIHeads
+    NUM_CLASSES: 1
+    BATCHSIZE: 512
+    POS_FRACTION: 0.5
+    MATCHER:
+      NAME: Matcher
+      THRESHOLD: [0.6]
+      LABELS: [0,1]
+      ALLOW_LOW: False
+
+    IN_FEATURES: ["p2", "p3", "p4", "p5"]
+    BOX_POOLER:
+      NAME: ROIPooler
+      OUT_SIZE: 14
+      SCALES: [0.25, 0.125, 0.0625, 0.03125]
+    
+    BOX_HEAD:
+      NAME: FastRCNNConvFCHead
+      IN_CHANS: 256
+      HEIGHT: 14
+      WIDTH: 14
+      CONV_DIMS: [256,256,256,256]
+      FC_DIMS: [1024]
+      CONV_NORM: LN
+
+    BOX_PREDICTOR:
+      NAME: FastRCNNOutputLayers
+      IN_CHANS: 1024
+      TEST_SCORE: 0
+      TEST_NMS: 0.1
+      BOX2BOX:
+        NAME: Box2BoxTransform
+        WEIGHT: [10,10,5,5]
+      NUM_CLASSES: 1
+      TEST_TOPK: 1000
+      NCC: False
+      CL: True
+    MASK_FEATURES: null
+  PIXEL_MEAN: [0.498]
+  PIXEL_STD: [0.145]
+  INPUT_FORMAT: mrc
+
+

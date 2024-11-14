@@ -1,0 +1,5 @@
+_BASE_: draco-b_imagenet_pretrain.yaml
+
+MODEL:
+  PATCH_SIZE: 14
+  VIT_SCALE: huge

@@ -1,0 +1,4 @@
+_BASE_: draco-b_imagenet_pretrain.yaml
+
+MODEL:
+  VIT_SCALE: large

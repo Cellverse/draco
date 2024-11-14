@@ -1,0 +1,16 @@
+MODEL:
+  NAME: DenoisingReconstructionAutoencoderVisionTransformer2d
+  DEVICE: cuda
+
+  IMG_SIZE: 256
+  PATCH_SIZE: 16
+  IN_CHANS: 1
+  VIT_SCALE: base
+  DYNAMIC_IMG_SIZE: True
+  DYNAMIC_IMG_PAD: True
+  DECODER_EMBED_DIM: 512
+  DECODER_DEPTH: 8
+  DECODER_NUM_HEADS: 16
+  USE_ABS_POS: True
+  DECODER_USE_NECK: True
+  DECODER_NECK_DIM: 256

@@ -1,0 +1,57 @@
+DATALOADER:
+  BATCH_SIZE: 0
+  NUM_WORKERS: 0
+  PIN_MEMORY: False
+  DROP_LAST: False
+  PERSISTENT_WORKERS: False
+
+DATASET:
+  NAME: null
+
+  TRANSFORM:
+    NAME: null
+
+MODEL:
+  NAME: null
+  DEVICE: cuda
+
+  METRIC:
+    NAME: null
+    TYPE: null
+
+MODULE:
+  NAME: null
+  COMPILE: False
+
+  OPTIMIZER:
+    NAME: null
+
+  SCHEDULER:
+    NAME: null
+
+TRAINER:
+  STRATEGY: auto        # Set to `auto`, `ddp`, `deepspeed_stage_2`, `deepspeed_stage_3` ...
+  MIXED_PRECISION: False
+  CHECKPOINT:
+    EVERY_N_EPOCHS: 10
+
+    SAVE_BEST: False    # If True, monitor will be required
+    MONITOR: null
+    MONITOR_MODE: min   # Set to `min` or `max`
+
+  MAX_EPOCHS: -1        # If profiler is enabled, this will be *automatically* set to 1
+  LOG_EVERY_N_STEPS: 1
+  ACCUMULATE_GRAD_BATCHES: 1
+
+  CLIP_GRAD:
+    ALGORITHM: null
+    VALUE: null
+
+  DETERMINISTIC: False  # Set to True to enable cudnn.deterministic
+  BENCHMARK: False      # Set to True to enable cudnn.benchmark
+  PROFILER: null        # Set to `advanced` or `pytorch` to enable profiling
+  DETECT_ANOMALY: False # Set to True to enable anomaly detection
+  SYNC_BATCHNORM: False # Set to True to enable sync batchnorm
+
+SEED: null
+OUTPUT_DIR: null
