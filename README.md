@@ -1,5 +1,7 @@
 # DRACO: A Denoising-reconstrution Autoencoder for Cryo-EM
+
 Accepted by NeurIPS 2024 | [project page](https://duskngai.github.io/draco/)
+
 Yingjun Shen, Haizhao Dai, Qihe Chen, Yan Zeng, Jiakai Zhang, Yuan Pei, Jingyi Yu
 
 <p align="center">
