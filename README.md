@@ -25,7 +25,7 @@ Second, install the dependencies by **manually installing them**:
     conda create -n draco python=3.11
     conda activate draco
     conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
-    conda install h5py ipykernel lightning matplotlib "numpy<2.0.0" pandas rich scipy tensorboard
+    conda install h5py ipykernel lightning matplotlib "numpy<2.0.0" pandas rich scipy
     pip install fvcore mrcfile omegaconf timm opencv-python pycocotools
     ```
 
@@ -84,7 +84,7 @@ DRACO uses [detectron2](https://github.com/facebookresearch/detectron2) as the d
 
 DRACO source code is released under the Creative Commons Attribution-Non-Commercial ShareAlike International License, Version 4.0 (CC-BY-NC-SA 4.0) (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at https://github.com/Cellverse/draco/blob/main/LICENSE.
 
-We only provide base model parameters for users to freely download and use them for non-commercial purposes. If users want to use the large model parameters, please send an email to `contact@cellverse.tech` with a brief description of your intended research use and your organization. Upon review, we will determine whether to grant access to the large model parameters.
+We only provide base model parameters for users to freely download and use them for non-commercial purposes. If users want to use the large model parameters, please send an email to `contact@cellverse.tech` with a brief description of your intended research use and your organization.
 
 Use restrictions for all model parameters: 
 * They are provided solely for non-commercial use by non-commercial organizations, and redistribution or use for other purposes is prohibited. 
