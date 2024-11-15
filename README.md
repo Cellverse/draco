@@ -27,7 +27,7 @@ Second, install the dependencies by **manually installing them**:
     conda create -n draco python=3.11
     conda activate draco
     conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
-    conda install h5py ipykernel lightning matplotlib "numpy<2.0.0" pandas rich scipy
+    conda install h5py ipykernel matplotlib "numpy<2.0.0" pandas rich scipy
     pip install fvcore mrcfile omegaconf timm opencv-python pycocotools
     ```
 
