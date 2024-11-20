@@ -9,7 +9,6 @@ Yingjun Shen, Haizhao Dai, Qihe Chen, Yan Zeng, Jiakai Zhang, Yuan Pei, Jingyi Y
 </p>
 
 ## TODOS
-- [ ] Hugging face denoise demo with more controllability
 - [ ] More compatibility with modern softwares, i.e., supporting `.star` file output
 - [ ] More downstream tasks (particle level)
 
@@ -77,7 +76,7 @@ For micrograph denoising, we further finetune our model on base parameter size.
 | :---------------: | :------: | 
 | Denoise/B |    [Base](https://drive.google.com/file/d/1z6DunE6skfKNODC6vOJ_48QXHRBzBPyK/view?usp=drive_link)    | 
 
-Please refer to the [jupyter script](notebook/draco_denoise.ipynb) for further instructions.
+Please refer to the [jupyter script](notebook/draco_denoise.ipynb) for further instructions. We also provide [hugging face](https://huggingface.co/spaces/cellverse/draco) demo with more controllability.
 
 # Acknowledgements
 DRACO uses [detectron2](https://github.com/facebookresearch/detectron2) as the detection framework for particle picking.
